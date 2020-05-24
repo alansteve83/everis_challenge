@@ -3,8 +3,12 @@
 #Variables
 export PWD=`pwd`
 export LOCATION='us-central1'
+export TF_VAR_location=$LOCATION
 export ZONE='us-central1-c'
-echo "Project: " $GOOGLE_CLOUD_PROJECT
+export TF_VAR_zone=-$ZONE
+export PROJECT=$GOOGLE_CLOUD_PROJECT
+export TF_VAR_project=$PROJECT
+
 
 #Get/set infor of my environment
 gcloud config set compute/zone $ZONE
@@ -13,8 +17,6 @@ gcloud config set compute/zone $ZONE
 #cd $PWD/terraform/
 terraform init
 terraform plan -out create_gke_cluster
-terraform apply -var="GOOGLE_CLOUD_PROJECT=$GOOGLE_CLOUD_PROJECT"
-terraform apply -var="LOCATION=$LOCATION"
 terraform apply "create_gke_cluster"
 #cd $PWD
 
