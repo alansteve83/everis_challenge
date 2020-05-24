@@ -1,5 +1,5 @@
 provider "google" {
-  credentials = "${file("../creds/serviceaccount.json")}"
+  credentials = "${file("./serviceaccount.json")}"
   project     = "$GOOGLE_CLOUD_PROJECT"
   region      = "$LOCATION"
 }

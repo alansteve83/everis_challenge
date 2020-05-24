@@ -13,6 +13,8 @@ gcloud config set compute/zone $ZONE
 #cd $PWD/terraform/
 terraform init
 terraform plan -out create_gke_cluster
+terraform apply -var="GOOGLE_CLOUD_PROJECT=$GOOGLE_CLOUD_PROJECT"
+terraform apply -var="LOCATION=$LOCATION"
 terraform apply "create_gke_cluster"
 #cd $PWD
 
