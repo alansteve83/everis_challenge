@@ -3,12 +3,8 @@
 #Variables
 export PWD=`pwd`
 export LOCATION='us-central1'
-export TF_VAR_location=$LOCATION
 export ZONE='us-central1-c'
-export TF_VAR_zone=-$ZONE
 export PROJECT=$GOOGLE_CLOUD_PROJECT
-export TF_VAR_project=$PROJECT
-
 
 #Get/set infor of my environment
 gcloud config set compute/zone $ZONE
