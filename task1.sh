@@ -10,13 +10,11 @@ echo "Project: " $GOOGLE_CLOUD_PROJECT
 gcloud config set compute/zone $ZONE
 
 #Terraform - create gke cluster
-cd $PWD/terraform/
+#cd $PWD/terraform/
 terraform init
-# terraform plan -out create_gke_cluster
-# terraform apply "create_gke_cluster"
-
-
-cd $PWD
+terraform plan -out create_gke_cluster
+terraform apply "create_gke_cluster"
+#cd $PWD
 
 gcloud container clusters get-credentials challenge-gke-cluster
 

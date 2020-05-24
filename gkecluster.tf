@@ -1,6 +1,6 @@
 resource "google_container_cluster" "gke-cluster" {
   name               = "challenge-gke-cluster"
   network            = "default"
-  location           = "us-central1-c"
+  location           = "$LOCATION"
   initial_node_count = 1
 }
