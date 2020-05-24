@@ -1,5 +1,5 @@
 provider "google" {
   credentials = "${file("./creds/serviceaccount.json")}"
-  project     = var.project
-  region      = var.location
+  project     = "core-photon-278101"
+  region      = "us-central1"
 }
