@@ -45,17 +45,17 @@ kubectl apply -f service/loadbalancer.yaml
 sudo apt-get update
 sudo apt-get install -y -q build-essential python-pip python-dev python-simplejson
 
-# cd python
-# docker build -t gcr.io/${PROJECT}/hello-app:v1 .
+cd python
+docker build -t gcr.io/${PROJECT}/hello-app:v1 .
 
-# gcloud auth configure-docker
-# docker push gcr.io/${PROJECT}/hello-app:v1
+gcloud auth configure-docker
+docker push gcr.io/${PROJECT}/hello-app:v1
 
-# kubectl create deployment hello-web --image=gcr.io/${PROJECT}/hello-app:v1
+# kubectl create deployment hello-app --image=gcr.io/${PROJECT}/hello-app:v1
+# kubectl expose deployment hello-app --type=LoadBalancer --port 80 --target-port 8080
 
-# kubectl expose deployment hello-web --type=LoadBalancer --port 80
-
-
+#Test
+#docker run --rm -p 8080:8080 gcr.io/${PROJECT}/hello-app:v1
 
 #Destroy
 #terraform destroy
