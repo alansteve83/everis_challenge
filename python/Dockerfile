@@ -1,11 +1,9 @@
-FROM ubuntu:latest
+FROM python:3.7
 
-RUN pip install --upgrade pip
-RUN pip install --upgrade virtualenv
+WORKDIR /usr/src/app
 
-RUN mkdir app
-COPY . /app
-RUN virtualenv /app/env/
-RUN /app/env/bin/pip install flask
-WORKDIR /app
-CMD env/bin/python index.py
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+COPY . /usr/src/app
+CMD python index.py
+
