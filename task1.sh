@@ -19,7 +19,6 @@ terraform apply "create_gke_cluster"
 gcloud container clusters get-credentials challenge-gke-cluster
 
 # nginx ingress controller installation
-cd ..
 rm -rf kubernetes-ingress
 git clone https://github.com/nginxinc/kubernetes-ingress/
 cd kubernetes-ingress/deployments
@@ -38,7 +37,19 @@ kubectl apply -f service/loadbalancer.yaml
 #kubectl get svc nginx-ingress --namespace=nginx-ingress
 
 
+#aplicacion - python
+sudo apt-get update
+sudo apt-get install -y -q build-essential python-pip python-dev python-simplejson
 
+# cd python
+# docker build -t gcr.io/${PROJECT}/hello-app:v1 .
+
+# gcloud auth configure-docker
+# docker push gcr.io/${PROJECT}/hello-app:v1
+
+# kubectl create deployment hello-web --image=gcr.io/${PROJECT}/hello-app:v1
+
+# kubectl expose deployment hello-web --type=LoadBalancer --port 80
 
 
 

@@ -1,8 +1,11 @@
-FROM python:alpine3.7
-COPY . /app
-WORKDIR /app
-RUN sudo apt-get update
-RUN sudo apt-get install -y -q build-essential python-pip python-dev python-simplejson
+FROM ubuntu:latest
+
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-CMD python ./index.py
+RUN pip install --upgrade virtualenv
+
+RUN mkdir app
+COPY . /app
+RUN virtualenv /app/env/
+RUN /app/env/bin/pip install flask
+WORKDIR /app
+CMD env/bin/python index.py
