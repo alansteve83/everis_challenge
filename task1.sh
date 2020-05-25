@@ -6,6 +6,10 @@ export LOCATION='us-central1'
 export ZONE='us-central1-c'
 export PROJECT=$GOOGLE_CLOUD_PROJECT
 
+gcloud config set project $PROJECT
+# Habilitamos Kubernetes Engine API
+gcloud services enable container.googleapis.com
+
 #Get/set infor of my environment
 gcloud config set compute/zone $ZONE
 
